@@ -18,12 +18,15 @@ steps:
     command: 'get'
     arguments: '-d'
     workingDirectory: '$(System.DefaultWorkingDirectory)'
-- script: ls -R  
+- script: |
+    ls -R 
+    ls -l 
   displayName: "run script"  
+
 - task: Go@0
   inputs:
     command: 'build'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/hello.go'
+    workingDirectory: 'hello.go'
 - task: CopyFiles@2
   inputs:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
