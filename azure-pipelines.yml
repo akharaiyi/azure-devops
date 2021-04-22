@@ -18,6 +18,8 @@ steps:
     command: 'get'
     arguments: '-d'
     workingDirectory: '$(System.DefaultWorkingDirectory)'
+- script: ls -R  
+  displayName: "run script"  
 - task: Go@0
   inputs:
     command: 'build'
