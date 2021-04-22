@@ -27,12 +27,23 @@ steps:
   inputs:
     command: 'build'
     workingDirectory: '$(System.DefaultWorkingDirectory)'
+- script: |
+    ls -R 
+    ls -l 
+    pwd
+  displayName: "run script v2" 
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
-    Contents: '.go'
+    Contents: '*.go'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- script: |
+    ls -R 
+    ls -l 
+    pwd
+  displayName: "run script v3"     
 
 - task: PublishBuildArtifacts@1
   inputs:
