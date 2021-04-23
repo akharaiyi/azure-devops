@@ -49,7 +49,14 @@ steps:
   inputs:
      artifactName: ctgdevops
 
-
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'home-ctg-test-ak (347fc977-961b-4016-bf42-a96ab3b85478)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az --version
+      az account show
 
   #- task: CopyFiles@2
   # inputs:
